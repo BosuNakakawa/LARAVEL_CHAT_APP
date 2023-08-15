@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/message')->group(function () {
     Route::post('/store', 'App\Http\Controllers\MessageController@store');
     Route::post('/fetch', 'App\Http\Controllers\MessageController@fetch');
+    Route::post('/fetch/guest', 'App\Http\Controllers\MessageController@fetchGuest');
 });

@@ -17,7 +17,7 @@
                 url: '/api/message/store',
                 method: 'POST',
                 data: {
-                    user_id: {{ $_COOKIE['guest_token'] }},
+                    user_id: '{{ $_COOKIE['guest_token'] }}',
                     message: $('#text_input').val()
                 },
                 success: function (data) {

@@ -32,4 +32,15 @@ class MessageController extends Controller
             'message' => $message
         ]);
     }
+
+    public function fetchGuest(Request $request)
+    {
+        $model = Message::all();
+
+        $message = $model->where('user_id', 'regexp', '[a-zA-Z]');
+
+        return response()->json([
+            'message' => $message
+        ]);
+    }
 }
