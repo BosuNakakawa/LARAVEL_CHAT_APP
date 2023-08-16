@@ -37,10 +37,12 @@ class MessageController extends Controller
     {
         $model = Message::all();
 
-        $message = $model->where('user_id', 'regexp', '[a-zA-Z]');
+        $filter = $model->filter(function ($message) {
+            return !is_numeric($message->user_id);
+        });
 
         return response()->json([
-            'message' => $message
+            'message' => $filter
         ]);
     }
 }
