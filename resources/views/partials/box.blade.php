@@ -26,10 +26,10 @@
                         <input type="text" class="textTemp"></div>
                     <footer class="footer"><!----><!---->
                         <form class="editor_wrap">
-                            <div class="uploadBox"><div class="uploadPic"></div>
+                            <div class="uploadBox"><button type="button" class="uploadPic"></button>
                                 <!----></div><!---->
                             <div class="editor_box editor_box_1"><input id="text_input" placeholder="กรุณาพิมพ์..."
-                                                                           class="editor"></input><span
+                                                                           class="editor" required></input><span
                                     class="emoji"></span></div>
                             <button type="submit" class="sender"></button>
                         </form>

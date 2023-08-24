@@ -41,8 +41,10 @@ class MessageController extends Controller
             return !is_numeric($message->user_id);
         });
 
+        $data_message = $filter->where('user_id', $request->user_id);
+
         return response()->json([
-            'message' => $filter
+            'message' => $data_message
         ]);
     }
 }

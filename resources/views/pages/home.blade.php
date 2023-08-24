@@ -41,15 +41,18 @@
             $.ajax({
                 url: '/api/message/fetch/guest',
                 method: 'POST',
+                data: {
+                    user_id: '{{ $_COOKIE['guest_token'] }}'
+                },
                 success: function (data) {
-                    $.each(data, function (index, value) {
+                    $.each(data.message.concat(data.created_at), function (index, value) {
                         $('#history').append(
                             '<dl class="msg-tile type-t role_v">' +
                             '<dt class="tile-avatar"></dt>' +
                             '<dd class="tile-body">' +
                             '<div class="tile-bubble">' +
                             '<div class="tile-txt tile-original">' + value.message + '</div><i class=""></i></div>' +
-                            '<div class="tile-time">' + Date.now() + '</div>' +
+                            '<div class="tile-time">' + value.created_at + '</div>' +
                             '</dd>' +
                             '</dl>'
                         );
@@ -58,7 +61,7 @@
             });
 
             return false;
-        })
+        });
 
     </script>
 </x-html>

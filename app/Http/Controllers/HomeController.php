@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        if ($_COOKIE['guest_token'] == null) {
+        if (!isset($_COOKIE['guest_token'])) {
             $cookie = Str::random(10);
 
             $model = new Session();
